@@ -4,6 +4,7 @@ import {
   SlackAPI,
   SlackFunction,
 } from "deno-slack-sdk/mod.ts";
+import "std/dotenv/load.ts";
 
 export const RandomUser = DefineFunction({
   callback_id: "random_user",
@@ -45,7 +46,6 @@ export default SlackFunction(
   RandomUser,
   async ({ inputs, token }) => {
     const slack = SlackAPI(token);
-
     // get users from groups
     const groups = inputs.groups || [];
     const fetch_users_from_group_task = groups.map((g) =>
