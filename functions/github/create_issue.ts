@@ -1,8 +1,8 @@
 import { DefineFunction, Schema, SlackFunction } from "deno-slack-sdk/mod.ts";
 
-export const CreateIssue = DefineFunction({
-  callback_id: "create_issue",
-  title: "Create GitHub issue",
+export const GithubCreateIssue = DefineFunction({
+  callback_id: "github_create_issue",
+  title: "Github: Create GitHub issue",
   description: "Create a new GitHub issue in a repository",
   source_file: "functions/github/create_issue.ts",
   input_parameters: {
@@ -50,7 +50,7 @@ export const CreateIssue = DefineFunction({
 });
 
 export default SlackFunction(
-  CreateIssue,
+  GithubCreateIssue,
   async ({ inputs, client }) => {
     const token = await client.apps.auth.external.get({
       external_token_id: inputs.githubAccessTokenId,

@@ -3,15 +3,15 @@ import { Octokit } from "https://esm.sh/octokit@4.0.2?dts@4.0.2";
 import "std/dotenv/load.ts";
 import { i18n } from "/utils/i18n.ts";
 
-export const DispatchWorkflow = DefineFunction({
-  callback_id: "dispatch_workflow",
+export const GithubDispatchWorkflow = DefineFunction({
+  callback_id: "github_dispatch_workflow",
   title: i18n(
-    "Dispatch a GitHub workflow",
-    "GitHubのワークフローを呼び出す",
+    "Github: Dispatch a GitHub workflow",
+    "Github: GitHubのワークフローを呼び出す",
   ),
   description: i18n(
-    "Dispatch a GitHub workflow",
-    "GitHubのワークフローを呼び出す",
+    "Github: Dispatch a GitHub workflow",
+    "Github: GitHubのワークフローを呼び出す",
   ),
   source_file: "functions/github/dispatch_workflow.ts",
   input_parameters: {
@@ -45,7 +45,8 @@ export const DispatchWorkflow = DefineFunction({
       },
       body: {
         type: Schema.types.string,
-        description: '{"name":"Hello world!"}',
+        description: "Workflow input parameters",
+        examples: ['{"name":"Hello world!"}'],
       },
     },
     required: [
@@ -64,7 +65,7 @@ export const DispatchWorkflow = DefineFunction({
 });
 
 export default SlackFunction(
-  DispatchWorkflow,
+  GithubDispatchWorkflow,
   async ({ inputs, client }) => {
     const token = await client.apps.auth.external.get({
       external_token_id: inputs.githubAccessTokenId,
