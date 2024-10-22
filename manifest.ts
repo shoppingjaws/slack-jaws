@@ -4,9 +4,11 @@ import { RotateUser, RotateUserList } from "./functions/slack/rotate_user.ts";
 import { GithubCreateIssue } from "./functions/github/create_issue.ts";
 import { GithubDispatchWorkflow } from "./functions/github/dispatch_workflow.ts";
 import { NotionAddPageToDb } from "./functions/notion/add_page_to_db.ts";
+import { NotionAppendParagraphToPage } from "./functions/notion/append_paragraph_to_page.ts";
+import { XPostTweet } from "./functions/x/post.ts";
 import GitHubProvider from "./external_auth/github_provider.ts";
 import NotionProvider from "./external_auth/notion_provider.ts";
-import { NotionAppendParagraphToPage } from "./functions/notion/append_paragraph_to_page.ts";
+import XProvider from "./external_auth/x_provider.ts";
 
 export default Manifest({
   name: "slack-jaws",
@@ -22,6 +24,8 @@ export default Manifest({
     // Notion
     NotionAddPageToDb,
     NotionAppendParagraphToPage,
+    // X
+    // XPostTweet,
   ],
   workflows: [],
   events: [],
@@ -31,10 +35,14 @@ export default Manifest({
     "esm.sh",
     "api.notion.com",
     "notion.com",
+    // "api.twitter.com",
+    // "api.x.com",
+    // "twitter.com",
   ],
   externalAuthProviders: [
     GitHubProvider,
     NotionProvider,
+    // XProvider,
   ],
   botScopes: [
     "commands",
