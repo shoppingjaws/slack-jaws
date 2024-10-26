@@ -30,12 +30,12 @@ export default SlackFunction(
 
     if (!token.ok) throw new Error("Failed to access auth token");
 
-    const headers = {
-      Accept: "application/vnd.github+json",
-      Authorization: `Bearer ${token.external_token}`,
-      "Content-Type": "application/json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    };
+    // const headers = {
+    //   Accept: "application/vnd.github+json",
+    //   Authorization: `Bearer ${token.external_token}`,
+    //   "Content-Type": "application/json",
+    //   "X-GitHub-Api-Version": "2022-11-28",
+    // };
     return { outputs: {} };
   },
 );

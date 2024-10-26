@@ -5,10 +5,10 @@ import { GithubCreateIssue } from "./functions/github/create_issue.ts";
 import { GithubDispatchWorkflow } from "./functions/github/dispatch_workflow.ts";
 import { NotionAddPageToDb } from "./functions/notion/add_page_to_db.ts";
 import { NotionAppendParagraphToPage } from "./functions/notion/append_paragraph_to_page.ts";
-import { XPostTweet } from "./functions/x/post.ts";
+// import { XPostTweet } from "./functions/x/post.ts";
 import GitHubProvider from "./external_auth/github_provider.ts";
 import NotionProvider from "./external_auth/notion_provider.ts";
-import XProvider from "./external_auth/x_provider.ts";
+// import XProvider from "./external_auth/x_provider.ts";
 
 export default Manifest({
   name: "slack-jaws",
