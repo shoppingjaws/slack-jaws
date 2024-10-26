@@ -1,7 +1,8 @@
 ---
 registries:
 - type: standard
-  ref: v4.219.0
+  ref: v4.241.0
 packages:
   - name: direnv/direnv@v2.34.0
   - name: 1password/cli@v2.30.0
+  - name: slack.com/slack-cli@v2.30.0
